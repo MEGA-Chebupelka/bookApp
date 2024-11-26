@@ -1,0 +1,244 @@
+/* GENERAL
+----------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
+:root {
+    --accent-color: hsl(32, 64%, 52%);
+    --background-color: hsl(48, 29%, 93%);
+    --secondary-background-color: hsl(0, 0%, 100%);
+    --third-background-color: hsl(0, 0%, 98%);
+    --font-color: hsl(46, 39%, 23%);
+
+    --read-background: hsl(69, 38%, 54%);
+    --read-text: hsl(70, 42%, 26%);
+
+    --unread-background: hsl(32, 64%, 52%);
+    --unread-text: hsl(32, 51%, 29%);
+
+    --deleteBtn-background: hsl(44, 33%, 91%);
+    --deleteBtn-secondary-background: hsl(43, 19%, 81%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    accent-color: var(--accent-color);
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Стандартный синтаксис */
+}
+
+/* LAYOUT
+----------------------------------------------- */
+
+#header {
+    background-color: var(--secondary-background-color);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+#header>h1 {
+    margin: 0 auto 0 .6rem;
+}
+
+#main {
+    width: 75%;
+    margin: auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 350px;
+    gap: 2rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    background-color: var(--secondary-background-color);
+    padding: 1.5rem;
+    justify-content: center;
+
+}
+
+/* STYLE
+----------------------------------------------- */
+
+body {
+    background-color: var(--background-color);
+    font-family: monospace;
+    color: var(--font-color);
+}
+
+h1 {
+    font-family: Antic Slab, serif;
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+}
+
+h2 {
+    font-family: Antic Slab, serif;
+    margin-top: .5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: .7rem;
+    font-style: italic;
+    margin-top: .5rem;
+    color: var(--secondary-font-color);
+}
+
+p {
+    font-size: .8rem;
+    text-align: end;
+    padding: .1rem;
+    margin-right: .6rem;
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+/* header
+------------------------ */
+
+#header {
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05);
+}
+#header>button,
+form>button {
+    background-color: var(--accent-color);
+    border-radius: 25px;
+    font-family: monospace;
+    color: var(--background-color);
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+#header>button {
+    font-size: 1rem;
+    padding: .8rem 1.5rem;
+}
+
+form>button {
+    font-size: .8rem;
+    padding: .5rem 1rem;
+}
+
+#header>button:hover,
+form>button:hover,
+form input {
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.10);
+}
+
+/* main
+------------------------ */
+
+.bookDisplay{
+    background-color: var(--secondary-background-color);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.05);
+    
+}
+
+.bookContent {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bookContent h2 {
+    flex: 1;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.bookContent h3 {
+    flex: 1;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.bookContent h4 {
+    flex: 1;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bookContent>button,
+.bookForm>button {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 100%;
+    background-color: var(--deleteBtn-background);
+}
+
+.bookContent>button {
+    right: .5rem;
+    top: 1.5rem;
+}
+
+.bookForm>button {
+    right: .5rem;
+    top: .5rem;
+}
+
+.bookContent>button:hover,
+.bookForm>button:hover {
+    background-color: var(--deleteBtn-secondary-background);
+}
+
+/* -- footer
+----------------------- */
+footer{
+    box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* -- status display
+---------------- */
+
+.bookDisplay .readStatus {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.bookDisplay .read {
+    background-color: var(--read-background);
+    color: var(--read-text);
+}
+
+.bookDisplay .unread {
+    background-color: var(--unread-background);
+    color: var(--unread-text);
+}
