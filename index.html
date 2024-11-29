@@ -8,6 +8,26 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
+
+<!----------- Modal window----------->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span>
+            <h2>ADD NEW BOOK</h2>
+            <form id="addBookForm">
+                <input type="text" id="title" placeholder="Title" class="bookForm" required>
+                <input type="text" id="author" placeholder="Author" class="bookForm" required>
+                <input type="number" id="pages" placeholder="Pages" class="bookForm" required>
+                <label>
+                    Read:
+                    <input type="checkbox" id="status">
+                </label>
+                <button type="submit">ADD</button>
+            </form>
+        </div>
+    </div>
+<!----------- Modal window----------->
+
     <div id="header">
         <img src="images/doors-entrance-svgrepo-com.svg" alt="doors">
         <h1>Marshall's Books.</h1>
@@ -15,7 +35,7 @@
     </div>
 
     <div id="main">
-        <!-----------
+        <!----------- Card pattern
         <div class="bookDisplay">
             <div class="readStatus" title="change status">
                 <p class="status">unread</p>

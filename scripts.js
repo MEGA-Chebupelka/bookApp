@@ -78,4 +78,47 @@ function displayBook(book){
   bookContent.appendChild(amountPages);
 }
 
+const modal = document.getElementById('modal');
+const addButton = document.getElementById('addBookBtn');
+const closeModalBtn = document.getElementById('close');
+
+function openModal() {
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+      closeModal();
+  }})
+
+addButton.addEventListener('click', openModal)
+closeModalBtn.addEventListener('click', closeModal);
+
+document.getElementById('addBookForm').addEventListener('submit',
+  function(event){
+    event.preventDefault();
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const statusChecked = document.getElementById('status').checked;
+    let status;
+    if (statusChecked){
+      status = 'read';
+    } else {
+      status = 'unread';
+    }
+
+    addBookToLibrary(title, author, pages, status)
+    displayBook(myLibrary[myLibrary.length-1]);
+    closeModal();
+    this.reset();
+  }
+)
+
+
+
 myLibrary.forEach(displayBook);
